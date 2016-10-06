@@ -1,0 +1,30 @@
+{
+  "name": "flow-babel-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A concise tool that glues together Flow and Webpack, with the help of Babel.",
+  "main": "index.js",
+  "dependencies": {
+    "babel-plugin-transform-flow-comments": "^6.17.0",
+    "flow-bin": "^0.33.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhirzh/flow-babel-webpack-plugin.git"
+  },
+  "keywords": [
+    "flow",
+    "flowtype",
+    "babel",
+    "webpack"
+  ],
+  "author": "Shirsh Zibbu <zibbu.shirsh@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhirzh/flow-babel-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/zhirzh/flow-babel-webpack-plugin#readme"
+}
