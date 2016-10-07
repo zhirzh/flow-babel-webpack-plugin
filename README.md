@@ -20,8 +20,8 @@ You need to follow a few simple steps.
 # Install Babel and Webpack and save as devDependencies
 npm i -D babel-core babel-loader webpack
 
-# Install FFWP
-npm i -D flow-flow-webpack-plugin
+# Install FBWP
+npm i -D flow-babel-webpack-plugin
 ```
 
 #### 2.  Setup babel and flow
@@ -42,7 +42,7 @@ npm i -D flow-flow-webpack-plugin
 ```js
 // webpack.config.js file
 
-var flowFlowWebpackPlugin = require('flow-flow-webpack-plugin');
+var FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
   entry: './index',
@@ -61,7 +61,7 @@ module.exports = {
   },
 
   plugins: [
-    new flowFlowWebpackPlugin(),
+    new FlowBabelWebpackPlugin(),
   ],
 }
 ```
