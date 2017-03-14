@@ -67,8 +67,6 @@ function flowErrorCode(status) {
 
 
 function checkFlowStatus(compiler, next) {
-  store.error = null;
-
   var res = spawnSync(flow, store.flowOptions);
   var status = res.status;
 
@@ -85,6 +83,8 @@ function checkFlowStatus(compiler, next) {
 function pushError(compilation) {
   if (store.error) {
     compilation.errors.push(store.error);
+
+    store.error = null;
   }
 }
 
