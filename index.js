@@ -1,5 +1,6 @@
 var spawnSync = require('child_process').spawnSync;
 var flow = require('flow-bin');
+var merge = require('lodash.merge');
 
 var store = {
   error: null,
@@ -7,6 +8,9 @@ var store = {
     'status',
     '--color=always',
   ],
+  options: {
+    warn: false,
+  },
 };
 
 
@@ -84,12 +88,18 @@ function checkFlowStatus(compiler, next) {
 
 function pushError(compilation) {
   if (store.error) {
-    compilation.errors.push(store.error);
+    if (store.options.warn) {
+      compilation.warnings.push(store.error);
+    } else {
+      compilation.errors.push(store.error);
+    }
   }
 }
 
 
-function FlowFlowPlugin() {}
+function FlowFlowPlugin(options) {
+  store.options = merge(store.options, options);
+}
 
 FlowFlowPlugin.prototype.apply = function(compiler) {
   compiler.plugin('run', checkFlowStatus);
