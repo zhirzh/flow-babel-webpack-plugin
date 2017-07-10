@@ -85,6 +85,9 @@ If you'd prefer to treat Flow issues as webpack warnings instead of errors, you 
 plugins: [
   new FlowBabelWebpackPlugin({
     warn: true,
+  }),
+],
+```
 
 ##### formatter
 
