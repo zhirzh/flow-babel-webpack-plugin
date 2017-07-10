@@ -73,6 +73,34 @@ From now on, when you run webpack, you will recieve flow status reports alongsid
 Something like this.
 ![](/demo.png)
 
+#### Options
+
+It should work pretty well with the defaults, but there are some options available:
+
+##### warn
+
+If you'd prefer to treat Flow issues as webpack warnings instead of errors, you can enable this option.
+
+```js
+plugins: [
+  new FlowBabelWebpackPlugin({
+    warn: true,
+
+##### formatter
+
+You can provide your own error message formatting function in order to customize the output.
+
+For example:
+```js
+plugins: [
+  new FlowBabelWebpackPlugin({
+    formatter: function (errorCode, errorDetails) {
+      return 'A Flow error was detected: ' + errorCode + '\n\n' + errorDetails;
+    },
+  }),
+],
+```
+
 ---
 
 ### What's next?

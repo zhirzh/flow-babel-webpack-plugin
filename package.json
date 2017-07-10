@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-plugin-transform-flow-comments": "^6.17.0",
     "flow-bin": ">=0.44.2 <1"
+    "lodash.merge": "^4.6.0"
   },
   "devDependencies": {},
   "scripts": {
