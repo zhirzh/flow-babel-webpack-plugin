@@ -9,6 +9,8 @@ var store = {
     '--color=always',
   ],
   options: {
+    warn: false,
+
     formatter: function (errorCode, errorDetails) {
       return 'Flow: ' + errorCode + '\n\n' + errorDetails;
     },
@@ -89,6 +91,12 @@ function checkFlowStatus(compiler, next) {
 
 function pushError(compilation) {
   if (store.error) {
+    if (store.options.warn) {
+      compilation.warnings.push(store.error);
+    } else {
+      compilation.errors.push(store.error);
+    }
+
     compilation.errors.push(store.error);
 
     store.error = null;

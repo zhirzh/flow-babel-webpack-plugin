@@ -77,6 +77,15 @@ Something like this.
 
 It should work pretty well with the defaults, but there are some options available:
 
+##### warn
+
+If you'd prefer to treat Flow issues as webpack warnings instead of errors, you can enable this option.
+
+```js
+plugins: [
+  new FlowBabelWebpackPlugin({
+    warn: true,
+
 ##### formatter
 
 You can provide your own error message formatting function in order to customize the output.
