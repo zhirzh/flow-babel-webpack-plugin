@@ -10,6 +10,10 @@ var store = {
   ],
   options: {
     warn: false,
+
+    formatter: function (errorCode, errorDetails) {
+      return 'Flow: ' + errorCode + '\n\n' + errorDetails;
+    },
   },
 };
 
@@ -71,15 +75,14 @@ function flowErrorCode(status) {
 
 
 function checkFlowStatus(compiler, next) {
-  store.error = null;
-
   var res = spawnSync(flow, store.flowOptions);
   var status = res.status;
 
   if (status !== 0) {
     var errorCode = flowErrorCode(status);
     var errorDetails = res.stdout.toString() + res.stderr.toString();
-    store.error = new Error('Flow: ' + errorCode + '\n\n' + errorDetails);
+
+    store.error = new Error(store.options.formatter(errorCode, errorDetails));
   }
 
   next();
@@ -93,6 +96,10 @@ function pushError(compilation) {
     } else {
       compilation.errors.push(store.error);
     }
+
+    compilation.errors.push(store.error);
+
+    store.error = null;
   }
 }
 

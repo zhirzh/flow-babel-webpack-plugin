@@ -85,6 +85,18 @@ If you'd prefer to treat Flow issues as webpack warnings instead of errors, you 
 plugins: [
   new FlowBabelWebpackPlugin({
     warn: true,
+
+##### formatter
+
+You can provide your own error message formatting function in order to customize the output.
+
+For example:
+```js
+plugins: [
+  new FlowBabelWebpackPlugin({
+    formatter: function (errorCode, errorDetails) {
+      return 'A Flow error was detected: ' + errorCode + '\n\n' + errorDetails;
+    },
   }),
 ],
 ```
