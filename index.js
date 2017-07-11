@@ -97,8 +97,6 @@ function pushError(compilation) {
       compilation.errors.push(store.error);
     }
 
-    compilation.errors.push(store.error);
-
     store.error = null;
   }
 }
