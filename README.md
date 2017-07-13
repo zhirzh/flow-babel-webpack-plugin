@@ -27,7 +27,10 @@ npm i -D flow-babel-webpack-plugin
 #### 2.  Setup babel and flow
 ```sh
 # setup .flowconfig
-./node_modules/.bin/flow init  or flow init
+./node_modules/.bin/flow init
+
+# or if you have global `flow`
+flow init
 
 # .babelrc file
 {
